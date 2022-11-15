@@ -1,0 +1,17 @@
+body{
+    background-color: whitesmoke;
+}
+
+.img-thumbnail {
+    width: 1215px;
+    height: 400px;
+}
+
+.card-text {
+    color: blue;
+    font-weight: 600;
+}
+
+.card-title {
+    font-weight: 700;
+}
