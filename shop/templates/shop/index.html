@@ -27,6 +27,8 @@
             <div class='card-title'>{{ product.title }}</div>
             <div class='card-text'>$ {{ product.price }}</div>
             </div>
+            <a href='/{{ product.id }}' class='btn btn-warning'>View</a>
+            <a class='btn btn-warning'>Add to cart</a>
         </div>
         {% endfor %}
     </div>
