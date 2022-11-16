@@ -3,6 +3,22 @@
 {% block content %} 
 
 <div class="container mt-5 mb-5">
+
+<div class='row'>
+    <div class='col-md-12'>
+        <form class='card card-sm'>
+            <div class='card-body row no-gutters align-items-center'>
+                <div class='col'>
+                    <input type='search' name='item_name' placeholder='Search fo products' class='form-control form-control-borderless'>
+                </div>
+                <div class='col-auto'>
+                    <button class='btn btn-success' type='submit'>Search</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
     <div class="row">
         {% for product in product_objects %}
         <div class="col-md-3">
@@ -14,6 +30,29 @@
         </div>
         {% endfor %}
     </div>
+
+    <div class='row mt-5 justify-content-center'>
+        <div class'col-md-3 offset-md-4'>
+            <ul class='pagination g-5'>
+                {% if product_objects.has_previous %}
+                <li class='page-item'>
+                    <a class='page-link' href='?page={{ product_objects.previous_page_number }}'>Previous</a>
+                </li>
+                {% endif %}
+
+                <li class='page-item active'>
+                    <a class='page-link' href='?page={{ product_objects.number }}'>Current</a>
+                </li>
+
+                {% if product_objects.has_next %}
+                <li class='page-item'>
+                    <a class='page-link' href='?page={{ product_objects.next_page_number }}'>Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
 </div>
     
 {% endblock content %}
