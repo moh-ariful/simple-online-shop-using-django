@@ -28,7 +28,7 @@
             <div class='card-text'>$ {{ product.price }}</div>
             </div>
             <a href='/{{ product.id }}' class='btn btn-warning'>View</a>
-            <a class='btn btn-warning'>Add to cart</a>
+            <button class='btn atc btn-warning'>Add to cart</button>
         </div>
         {% endfor %}
     </div>
@@ -56,5 +56,20 @@
     </div>
 
 </div>
+<script type='text/javascript'>
+console.log('This is working');
+
+if(localStorage.getItem('cart')==null){
+    var cart = {};
+}
+else{
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+$(document).on('click', '.atc', function(){
+    console.log("Tombol button ATC ini sudah di-klik");
+});
+
+</script>
     
 {% endblock content %}
