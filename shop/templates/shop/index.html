@@ -28,7 +28,7 @@
             <div class='card-text'>$ {{ product.price }}</div>
             </div>
             <a href='/{{ product.id }}' class='btn btn-warning'>View</a>
-            <button class='btn atc btn-warning'>Add to cart</button>
+            <button id={{ product.id }} class='btn atc btn-warning'>Add to cart</button>
         </div>
         {% endfor %}
     </div>
@@ -68,6 +68,18 @@ else{
 
 $(document).on('click', '.atc', function(){
     console.log("Tombol button ATC ini sudah di-klik");
+    var item_id = this.id.toString();
+    console.log(item_id);
+
+    if(cart[item_id]!=undefined){
+        cart[item_id] = cart[item_id] + 1;
+    }
+    else{
+        cart[item_id] = 1;
+    }
+    console.log(cart);
+    localStorage.setItem('cart', JSON.stringify());
+
 });
 
 </script>
